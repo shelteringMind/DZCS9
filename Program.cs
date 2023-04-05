@@ -16,7 +16,7 @@ string Recurs(int stop, int num)
 Console.WriteLine($"N = {N} -> \"{Recurs(1, N)}\"");
 //*/
 
-//*/
+/*/
 // Задача 66: **Выполнить с помощью рекурсии**.Задайте значения M и N. Напишите программу, 
 // которая найдёт сумму натуральных элементов в промежутке от M до N.
 // M = 1; N = 15 -> 120
@@ -38,4 +38,25 @@ if(M > 0 && N > 0) Console.WriteLine($"M = {M}; N = {N} -> {SumNumRecurs(M, N)}"
 else Console.Write("Вводимые Вами числа должны быть натуральными! Попробуйте еще раз... ");
 //*/
 
+//*/
+// Задача 68: **Выполнить с помощью рекурсии**.Напишите программу вычисления функции Аккермана с помощью рекурсии.
+// Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
 
+Console.Write("Введите число m: ");
+int M = int.Parse(Console.ReadLine()!);
+
+Console.Write("Введите число n: ");
+int N = int.Parse(Console.ReadLine()!);
+
+if(M >= 0 && N >= 0) Console.Write($"m = {M}, n = {N} -> A(m, n) = {FuncAkkerman(M, N)}");
+else Console.Write("Числа M и N должны быть больше либо равны нулю! Программа завершает работу...");
+
+int FuncAkkerman(int m, int n)
+{
+    return (m==0)            ? n + 1 : 
+           (m > 0 && n == 0) ? FuncAkkerman(m - 1, 1) :
+           (m > 0 && n > 0)  ? FuncAkkerman(m - 1, FuncAkkerman(m, n - 1)) : 0;
+}
+//*/
